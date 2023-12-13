@@ -1,0 +1,87 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"os"
+	"regexp"
+	"sort"
+	"strconv"
+)
+
+func makeIntList(txt string) ([]int, error) {
+	re := regexp.MustCompile(`\d+`)
+	vs := re.FindAll([]byte(txt), -1)
+	vsm := make([]int, len(vs))
+	for i, v := range vs {
+		n, err := strconv.Atoi(string(v))
+		if err != nil {
+			return nil, err
+		}
+		vsm[i] = n
+	}
+	return vsm, nil
+}
+
+func main() {
+
+	file, err := os.Open("input.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	sum1, sum2 := 0, 0
+
+	scanner := bufio.NewScanner(file)
+	if !scanner.Scan() {
+		panic("missing first line")
+	}
+
+	seedsLine := scanner.Text()
+	if seedsLine[:7] != "seeds: " {
+		panic("expecting seeds")
+	}
+
+	dstList, err := makeIntList(seedsLine[7:])
+	if err != nil {
+		panic("expected int list")
+	}
+
+	srcList := make([]int, len(dstList))
+	copy(srcList, dstList)
+	for scanner.Scan() {
+		txt := scanner.Text()
+		if txt == "" {
+
+		} else if txt[len(txt)-1:] == ":" {
+			fmt.Println(srcList, "->", dstList)
+			copy(srcList, dstList)
+		} else {
+			t, err := makeIntList(txt)
+			if err != nil {
+				panic("expected int list")
+			}
+			if len(t) != 3 {
+				panic("expected 3 integers")
+			}
+			firstDst, firstSrc, rangeLen := t[0], t[1], t[2]
+			for i, v := range srcList {
+				if firstSrc <= v && v < firstSrc+rangeLen {
+					dstList[i] = v - firstSrc + firstDst
+				}
+			}
+		}
+	}
+	fmt.Println(srcList, "->", dstList)
+	sort.IntSlice.Sort(dstList)
+	fmt.Println(dstList[0])
+
+	err1 := scanner.Err()
+	if err1 != nil {
+		panic(err1)
+	}
+
+	fmt.Println(sum1, sum2)
+}

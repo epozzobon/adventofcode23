@@ -1,0 +1,101 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"os"
+	"slices"
+	"strconv"
+	"strings"
+)
+
+type onsen struct {
+	line    string
+	numbers []int
+}
+
+func describe(line string) []int {
+	parts := strings.Split(line, ".")
+	n := []int{}
+	for _, p := range parts {
+		d := len(p)
+		if d > 0 {
+			n = append(n, d)
+		}
+	}
+	return n
+}
+
+func fulfil(o onsen) int {
+	qc := 0
+	for _, c := range o.line {
+		if c == '?' {
+			qc++
+		}
+	}
+
+	runes := []rune(o.line)
+	fmt.Println(o.line)
+	count := 0
+	for i := 0; i < (1 << qc); i++ {
+		k := 0
+		for j := 0; j < len(o.line); j++ {
+			if o.line[j] == '?' {
+				if i&(1<<k) == 0 {
+					runes[j] = '#'
+				} else {
+					runes[j] = '.'
+				}
+				k++
+			}
+		}
+
+		if 0 == slices.Compare(describe(string(runes)), o.numbers) {
+			count++
+		}
+	}
+	return count
+}
+
+func main() {
+
+	file, err := os.Open("input.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	lines := []onsen{}
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		txt := scanner.Text()
+		parts := strings.Split(txt, " ")
+		line := parts[0]
+		parts = strings.Split(parts[1], ",")
+		numbers := make([]int, len(parts))
+		for i, n := range parts {
+			numbers[i], err = strconv.Atoi(n)
+			if err != nil {
+				panic(err)
+			}
+		}
+		fmt.Println(line, numbers)
+		o := onsen{line, numbers}
+		lines = append(lines, o)
+	}
+
+	err1 := scanner.Err()
+	if err1 != nil {
+		panic(err1)
+	}
+
+	sum := 0
+	for _, o := range lines {
+		count := fulfil(o)
+		fmt.Println(count)
+		sum += count
+	}
+	fmt.Println(sum)
+
+}

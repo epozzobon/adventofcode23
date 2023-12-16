@@ -1,0 +1,8 @@
+{
+    "go.lintTool": "golint",
+    "go.useLanguageServer": true,
+    "editor.semanticHighlighting.enabled": true,
+    "ui.semanticTokens": true,
+    "gopls": {
+    }
+}

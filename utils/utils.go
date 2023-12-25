@@ -191,3 +191,11 @@ func CheckSolution[K comparable, V any](fn func(string, V) K, filename string, a
 		panic("Wrong solution")
 	}
 }
+
+func Atoi(a string) int {
+	i, err := strconv.Atoi(a)
+	if err != nil {
+		panic(err)
+	}
+	return i
+}

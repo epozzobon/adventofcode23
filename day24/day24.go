@@ -285,26 +285,8 @@ func Day24p2(filename string, arg int) int {
 	vzk := solutions[0]
 	pzk := solutions[1]
 
-	equal := true
-	//for _, s := range stones {
-	//	px0, vx0 := s.position.x, s.velocity.x
-	//	py0, vy0 := s.position.y, s.velocity.y
-	//	pz0, vz0 := s.position.z, s.velocity.z
-	//	// px0 + vx0 * t0 = pxk + vxk * t0
-	//	// px0 - pxk = (vxk - vx0) * t0
-	//	tCollX := (px0 - pxk) / (vxk - vx0)
-	//	tCollY := (py0 - pyk) / (vyk - vy0)
-	//	tCollZ := (pz0 - pzk) / (vzk - vz0)
-	//	if tCollX != tCollY || tCollX != tCollZ {
-	//		panic("uh")
-	//	}
-	//}
-	if equal {
-		fmt.Println("GOOD:", pxk, pyk, pzk, "@", vxk, vyk, vzk)
-		return pxk + pyk + pzk
-	} else {
-		panic("panik! math is wrong")
-	}
+	fmt.Println("rock:", pxk, pyk, pzk, "@", vxk, vyk, vzk)
+	return pxk + pyk + pzk
 }
 
 func main() {

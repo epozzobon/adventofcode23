@@ -8,6 +8,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"testing"
 )
 
 type Matrix [][]byte
@@ -198,4 +199,22 @@ func Atoi(a string) int {
 		panic(err)
 	}
 	return i
+}
+
+func Wrap(vs ...interface{}) []interface{} {
+	return vs
+}
+
+func Assert(t *testing.T, a []interface{}, b ...interface{}) {
+	log.Println(a, "==", b)
+	for i := range a {
+		if a[i] != b[i] {
+			if t != nil {
+				t.Fatalf("Wanted %#v, got %#v", a, b)
+			} else {
+				panic(fmt.Sprintf("Wanted %#v, got %#v", a, b))
+			}
+			return
+		}
+	}
 }

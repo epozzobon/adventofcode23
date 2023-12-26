@@ -1,4 +1,4 @@
-package main
+package day16
 
 import (
 	"fmt"
@@ -170,11 +170,4 @@ func Day16(filepath string, problemPart int) int {
 	}
 
 	panic("Unknown problem part")
-}
-
-func main() {
-	utils.CheckSolution(Day16, "example1.txt", 1, 46)
-	utils.CheckSolution(Day16, "example1.txt", 2, 51)
-	utils.CheckSolution(Day16, "input.txt", 1, 7472)
-	utils.CheckSolution(Day16, "input.txt", 2, 7716)
 }

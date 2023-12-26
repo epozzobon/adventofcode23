@@ -1,4 +1,4 @@
-package main
+package day22
 
 import (
 	"fmt"
@@ -231,11 +231,4 @@ func Day22(filename string, part2 bool) int {
 	}
 	fmt.Println(sum)
 	return sum
-}
-
-func main() {
-	utils.CheckSolution(Day22, "example1.txt", false, 5)
-	utils.CheckSolution(Day22, "example1.txt", true, 7)
-	utils.CheckSolution(Day22, "input.txt", false, 375)
-	utils.CheckSolution(Day22, "input.txt", true, 72352)
 }

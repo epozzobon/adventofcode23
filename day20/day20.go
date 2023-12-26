@@ -1,4 +1,4 @@
-package main
+package day20
 
 import (
 	"fmt"
@@ -100,19 +100,19 @@ func Day20(filename string, problemPart int) int {
 					periods[d.name] = buttonPresses
 				}
 			}
-			stateStr := "low"
-			if m.state == 1 {
-				stateStr = "high"
-			}
-			for _, d := range m.dst {
-				fmt.Printf("%s -%s-> %s\n", m.name, stateStr, d.name)
-				if d.name == "rx" && m.state == 0 {
-					fmt.Printf("rx pulsed %d\n", m.state)
-				}
-				if focused[d.name] && m.state == 0 {
-					fmt.Println(d.name, "pulsed low at button press", buttonPresses)
-				}
-			}
+			//stateStr := "low"
+			//if m.state == 1 {
+			//	stateStr = "high"
+			//}
+			//for _, d := range m.dst {
+			//	fmt.Printf("%s -%s-> %s\n", m.name, stateStr, d.name)
+			//	if d.name == "rx" && m.state == 0 {
+			//		fmt.Printf("rx pulsed %d\n", m.state)
+			//	}
+			//	if focused[d.name] && m.state == 0 {
+			//		fmt.Println(d.name, "pulsed low at button press", buttonPresses)
+			//	}
+			//}
 		}
 		for len(pulseBackLog) > 0 {
 			p := pulseBackLog[0]
@@ -168,11 +168,4 @@ func Day20(filename string, problemPart int) int {
 		return m
 	}
 	panic("wut")
-}
-
-func main() {
-	utils.CheckSolution(Day20, "example1.txt", 1, 32000000)
-	utils.CheckSolution(Day20, "example2.txt", 1, 11687500)
-	utils.CheckSolution(Day20, "input.txt", 1, 763500168)
-	utils.CheckSolution(Day20, "input.txt", 2, 207652583562007)
 }

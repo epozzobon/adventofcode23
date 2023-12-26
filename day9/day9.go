@@ -1,4 +1,4 @@
-package main
+package day9
 
 import (
 	"bufio"
@@ -26,7 +26,7 @@ func predict(line []int) (int, int) {
 	return line[0] - d0, line[len(line)-1] + d1
 }
 
-func Day9(filepath string, problemPart int) int {
+func Day9(filepath string) (int, int) {
 
 	file, err := os.Open(filepath)
 	if err != nil {
@@ -54,19 +54,5 @@ func Day9(filepath string, problemPart int) int {
 	}
 
 	fmt.Println(sum1, sum2)
-
-	if problemPart == 1 {
-		return sum2
-	} else if problemPart == 2 {
-		return sum1
-	} else {
-		panic("Unknown problem part")
-	}
-}
-
-func main() {
-	utils.CheckSolution(Day9, "example1.txt", 1, 114)
-	utils.CheckSolution(Day9, "example1.txt", 2, 2)
-	utils.CheckSolution(Day9, "input.txt", 1, 1743490457)
-	utils.CheckSolution(Day9, "input.txt", 2, 1053)
+	return sum2, sum1
 }

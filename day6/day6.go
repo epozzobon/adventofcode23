@@ -1,4 +1,4 @@
-package main
+package day6
 
 import (
 	"fmt"
@@ -102,11 +102,4 @@ func countWaysToBeat(raceDuration, distanceRecord int) int {
 	fmt.Println(minimumSpeed, maximumSpeed)
 	fmt.Println(waysToBeat)
 	return waysToBeat
-}
-
-func main() {
-	utils.CheckSolution(Day6, "example1.txt", 1, 288)
-	utils.CheckSolution(Day6, "example1.txt", 2, 71503)
-	utils.CheckSolution(Day6, "input.txt", 1, 227850)
-	utils.CheckSolution(Day6, "input.txt", 2, 42948149)
 }

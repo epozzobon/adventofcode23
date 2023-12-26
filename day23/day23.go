@@ -1,4 +1,4 @@
-package main
+package day23
 
 import (
 	"epozzobon.it/adventofcode23/utils"
@@ -52,7 +52,7 @@ func removeEdgePoint(pt *point) bool {
 	}
 
 	//   ____                 ____                 ____
-	//  |    |-------a0----->|    |<------a0------|    |
+	//  |    |-------a0----->|    |<------a1------|    |
 	//  | n0 |               | pt |               | n1 |
 	//  |____|<--pt.arcs[0]--|____|--pt.arcs[1]-->|____|
 	//
@@ -167,11 +167,4 @@ func Day23(filename string, part2 bool) int {
 		return out
 	}
 	return explore(0, entrance)
-}
-
-func main() {
-	utils.CheckSolution(Day23, "example1.txt", false, 94)
-	utils.CheckSolution(Day23, "example1.txt", true, 154)
-	utils.CheckSolution(Day23, "input.txt", false, 2406)
-	utils.CheckSolution(Day23, "input.txt", true, 6630)
 }

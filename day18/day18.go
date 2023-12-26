@@ -1,4 +1,4 @@
-package main
+package day18
 
 import (
 	"fmt"
@@ -190,11 +190,4 @@ func solve(instructions []instruction) int {
 		fmt.Println(area)
 		return area + solve(instructions)
 	}
-}
-
-func main() {
-	utils.CheckSolution(Day18, "example1.txt", 1, 62)
-	utils.CheckSolution(Day18, "example1.txt", 2, 952408144115)
-	utils.CheckSolution(Day18, "input.txt", 1, 50746)
-	utils.CheckSolution(Day18, "input.txt", 2, 70086216556038)
 }

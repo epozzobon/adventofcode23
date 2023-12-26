@@ -1,4 +1,4 @@
-package main
+package day8
 
 import (
 	"fmt"
@@ -162,12 +162,4 @@ func Day8(filepath string, problemPart int) int {
 	fmt.Println(steps[0])
 
 	return steps[0]
-}
-
-func main() {
-	utils.CheckSolution(Day8, "example1.txt", 1, 2)
-	utils.CheckSolution(Day8, "example2.txt", 1, 6)
-	utils.CheckSolution(Day8, "example3.txt", 2, 6)
-	utils.CheckSolution(Day8, "input.txt", 1, 22411)
-	utils.CheckSolution(Day8, "input.txt", 2, 11188774513823)
 }

@@ -1,4 +1,4 @@
-package main
+package day5
 
 import (
 	"bufio"
@@ -177,11 +177,4 @@ func Day5(path string, problemPart int) int {
 		return seedsRanges[0].from
 	}
 	panic("Unknown problem part")
-}
-
-func main() {
-	utils.CheckSolution(Day5, "example1.txt", 1, 35)
-	utils.CheckSolution(Day5, "example1.txt", 2, 46)
-	utils.CheckSolution(Day5, "input.txt", 1, 51752125)
-	utils.CheckSolution(Day5, "input.txt", 2, 12634632)
 }

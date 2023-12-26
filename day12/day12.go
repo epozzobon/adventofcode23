@@ -1,4 +1,4 @@
-package main
+package day12
 
 import (
 	"log"
@@ -121,11 +121,4 @@ func Day12(filepath string, problemPart int) int {
 		sum += bito(line, numbers, reps)
 	}
 	return sum
-}
-
-func main() {
-	utils.CheckSolution(Day12, "example1.txt", 1, 21)
-	utils.CheckSolution(Day12, "example1.txt", 2, 525152)
-	utils.CheckSolution(Day12, "input.txt", 1, 8075)
-	utils.CheckSolution(Day12, "input.txt", 2, 4232520187524)
 }

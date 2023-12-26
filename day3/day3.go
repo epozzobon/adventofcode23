@@ -1,4 +1,4 @@
-package main
+package day3
 
 import (
 	"fmt"
@@ -13,7 +13,7 @@ type potgear struct {
 	pnum int
 }
 
-func Day3(filepath string, problemPart int) int {
+func Day3(filepath string) (int, int) {
 	schematics, err := utils.ReadMatrix(filepath)
 	if err != nil {
 		panic(err)
@@ -80,18 +80,5 @@ func Day3(filepath string, problemPart int) int {
 	}
 
 	fmt.Println(sum1, ratiosum)
-	if problemPart == 1 {
-		return sum1
-	} else if problemPart == 2 {
-		return ratiosum
-	} else {
-		panic("Unknown problem part")
-	}
-}
-
-func main() {
-	utils.CheckSolution(Day3, "example1.txt", 1, 4361)
-	utils.CheckSolution(Day3, "example1.txt", 2, 467835)
-	utils.CheckSolution(Day3, "input.txt", 1, 528819)
-	utils.CheckSolution(Day3, "input.txt", 2, 80403602)
+	return sum1, ratiosum
 }

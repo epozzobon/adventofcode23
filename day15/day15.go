@@ -1,4 +1,4 @@
-package main
+package day15
 
 import (
 	"regexp"
@@ -88,11 +88,4 @@ func Day15(filepath string, problemPart int) int {
 	} else {
 		panic("Unknown problem part")
 	}
-}
-
-func main() {
-	utils.CheckSolution(Day15, "example1.txt", 1, 1320)
-	utils.CheckSolution(Day15, "example1.txt", 2, 145)
-	utils.CheckSolution(Day15, "input.txt", 1, 511343)
-	utils.CheckSolution(Day15, "input.txt", 2, 294474)
 }

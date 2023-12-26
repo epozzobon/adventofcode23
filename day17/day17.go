@@ -1,4 +1,4 @@
-package main
+package day17
 
 import (
 	"fmt"
@@ -121,11 +121,4 @@ func solve(matrix [][]int, minStraights, maxStraights int) int {
 	}
 
 	return bound
-}
-
-func main() {
-	utils.CheckSolution(Day17, "example1.txt", 1, 102)
-	utils.CheckSolution(Day17, "example1.txt", 2, 94)
-	utils.CheckSolution(Day17, "input.txt", 1, 1023)
-	utils.CheckSolution(Day17, "input.txt", 2, 1165)
 }

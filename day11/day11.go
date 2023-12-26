@@ -1,4 +1,4 @@
-package main
+package day11
 
 import (
 	"epozzobon.it/adventofcode23/utils"
@@ -116,12 +116,4 @@ func Day11(filepath string, repetitions int) int {
 		}
 	}
 	return sum1
-}
-
-func main() {
-	utils.CheckSolution(Day11, "example1.txt", 2, 374)
-	utils.CheckSolution(Day11, "example1.txt", 10, 1030)
-	utils.CheckSolution(Day11, "example1.txt", 100, 8410)
-	utils.CheckSolution(Day11, "input.txt", 2, 10313550)
-	utils.CheckSolution(Day11, "input.txt", 1000000, 611998089572)
 }

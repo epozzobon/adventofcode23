@@ -1,4 +1,4 @@
-package main
+package day10
 
 import (
 	"fmt"
@@ -114,8 +114,8 @@ func Day10(filepath string, problemPart int) int {
 		}
 	}
 
-	fmt.Println(d / 2)
 	if problemPart == 1 {
+		fmt.Println(d / 2)
 		return d / 2
 	}
 
@@ -225,13 +225,4 @@ func Day10(filepath string, problemPart int) int {
 	}
 
 	panic("Unknown problem part")
-}
-
-func main() {
-	utils.CheckSolution(Day10, "example1.txt", 1, 4)
-	utils.CheckSolution(Day10, "example2.txt", 1, 8)
-	utils.CheckSolution(Day10, "example3.txt", 2, 8)
-	utils.CheckSolution(Day10, "example4.txt", 2, 10)
-	utils.CheckSolution(Day10, "input.txt", 1, 6951)
-	utils.CheckSolution(Day10, "input.txt", 2, 563)
 }

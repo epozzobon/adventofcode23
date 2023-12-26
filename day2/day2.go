@@ -1,4 +1,4 @@
-package main
+package day2
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"epozzobon.it/adventofcode23/utils"
 )
 
-func Day2(filepath string, problemPart int) int {
+func Day2(filepath string) (int, int) {
 
 	file, err := utils.ReadLines(filepath)
 	if err != nil {
@@ -77,18 +77,5 @@ func Day2(filepath string, problemPart int) int {
 	}
 	fmt.Println(sum1, sum2)
 
-	if problemPart == 1 {
-		return sum1
-	} else if problemPart == 2 {
-		return sum2
-	} else {
-		panic("Unknown problem part")
-	}
-}
-
-func main() {
-	utils.CheckSolution(Day2, "example1.txt", 1, 8)
-	utils.CheckSolution(Day2, "example1.txt", 2, 2286)
-	utils.CheckSolution(Day2, "input.txt", 1, 2449)
-	utils.CheckSolution(Day2, "input.txt", 2, 63981)
+	return sum1, sum2
 }

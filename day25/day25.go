@@ -1,4 +1,4 @@
-package main
+package day25
 
 import (
 	"fmt"
@@ -25,9 +25,9 @@ type node struct {
 	arcs []*node
 }
 
-var re = regexp.MustCompile(`[a-z]+`)
-
 func loadGraph(filename string) map[string]*node {
+
+	re := regexp.MustCompile(`[a-z]+`)
 
 	file, err := utils.ReadLines(filename)
 	if err != nil {
@@ -178,9 +178,4 @@ func findSplit(nodes map[string]*node, arcsCount int) (*node, *node) {
 	}
 
 	return nil, nil
-}
-
-func main() {
-	utils.CheckSolution(Day25, "example1.txt", 1, 54)
-	utils.CheckSolution(Day25, "input.txt", 1, 602151)
 }
